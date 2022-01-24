@@ -14,6 +14,7 @@ class DmService {
   static async createNewDm(req) {
     const { user: { id, username }} = req;
     const { receiverId, message } = req.body;
+    //console.log(receiverId)
     const newDmObject = {
       id: uuid(),
       creatorId: id,
@@ -21,7 +22,9 @@ class DmService {
       receiverId,
       message
     };
+    //console.log(newDmObject)
     const newDm = await Queries.create(dms, newDmObject);
+
     sendDmNotification(receiverId, newDm.dataValues);
     return newDm;
   }

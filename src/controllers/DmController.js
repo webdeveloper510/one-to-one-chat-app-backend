@@ -13,6 +13,7 @@ class DmController {
    * @returns {object} function to create new dm
    */
   static async createDm(req, res) {
+
     const newDM = await DmService.createNewDm(req);
     Response.successMessage(
       res,
