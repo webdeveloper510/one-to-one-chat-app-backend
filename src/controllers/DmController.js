@@ -22,7 +22,6 @@ class DmController {
       httpStatus.CREATED
     );
   }
-<<<<<<< HEAD
   
 
     /**
@@ -57,8 +56,6 @@ class DmController {
       );
     }
 
-=======
->>>>>>> parent of 10769bf (First commit)
 }
 
 export default DmController;
