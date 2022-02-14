@@ -26,7 +26,7 @@ app.use('*', (req, res) =>
   'Oops, this route does not exist',
   HttpStatus.NOT_FOUND)
 );
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const serverInstance = app.listen(port, ()=>{
     console.log(`Server is running on PORT ${port}...`);
 }) 
