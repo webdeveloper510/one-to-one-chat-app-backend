@@ -51,7 +51,7 @@ class Queries {
      * @returns {object} either an error or data
      */
     static async update(table, queryObject) {
-      const rows = await table.update(...queryObject);
+      const rows = await table.update(queryObject.values,queryObject.selector,);
   
       return rows;
     }

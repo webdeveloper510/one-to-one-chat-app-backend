@@ -26,4 +26,7 @@ export const sendDmNotification = (roomId, message) => {
   //console.log(roomId)
     io.to(roomId).emit('notification', message);
 };
-
+export const sendDmReadNotification = (roomId, message) => {
+  //console.log(roomId)
+    io.to(roomId).emit('read', message);
+};
