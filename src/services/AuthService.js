@@ -40,6 +40,7 @@ class AuthService {
         exclude: ["password"],
       },
       include: [
+<<<<<<< HEAD
          
             { 
               model: dms, as: 'sentDms', 
@@ -50,6 +51,22 @@ class AuthService {
                 order: [["createdAt", "ASC"]],
                 limit : 10
             },
+=======
+           { 
+             model: dms, as: 'receivedDms', 
+             required: false,
+              where: {
+                  receiverId: id 
+               }
+           },
+           {
+              model: dms, as: 'sentDms', 
+              required: false,
+               where: {
+                senderId: id 
+              }
+            }
+>>>>>>> parent of 10769bf (First commit)
       ],
       order: [["createdAt", "DESC"]],
       
