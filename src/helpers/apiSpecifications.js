@@ -15,7 +15,7 @@ const swaggerOptions = {
     security: {},
     servers: [
       {
-        url: 'http://localhost:5000',
+        url: 'http://3.38.209.173:5001/',
         name: `${os.hostname()}`
       },
       {
