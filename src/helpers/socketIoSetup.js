@@ -22,9 +22,9 @@ export const bootStrapSocketIo = (appServer) => {
   
 };
 
-export const sendDmNotification = (roomId, message) => {
+export const sendDmNotification = (roomId, message,socketId) => {
   //console.log(roomId)
-    io.to(roomId).emit('notification', message);
+    io.to(socketId).emit('notification', message);
 };
 export const sendDmReadNotification = (roomId, message) => {
   //console.log(roomId)
