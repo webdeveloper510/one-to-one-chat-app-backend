@@ -49,18 +49,6 @@ class Validator {
     ];
   }
 
- /**
-   * Validate input
-   * @static
-   * @returns {object} errors
-   */
-  static userRules() {
-    return [
-      check("recieverId", "email should be valid").trim().isString()
-    ];
-  }
-
-
   /**
    * Validate input
    * @static
