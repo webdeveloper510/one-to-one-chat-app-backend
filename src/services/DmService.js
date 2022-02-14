@@ -13,7 +13,7 @@ class DmService {
    */
   static async createNewDm(req) {
     const { user: { id, username }} = req;
-    const { receiverId, message,socketId } = req.body;
+    const { receiverId, message } = req.body;
     //console.log(receiverId)
     const newDmObject = {
       id: uuid(),
@@ -22,10 +22,9 @@ class DmService {
       receiverId,
       message
     };
-    console.log(socketId)
     const newDm = await Queries.create(dms, newDmObject);
 
-    sendDmNotification(receiverId, newDm.dataValues,socketId);
+    sendDmNotification(receiverId, newDm.dataValues);
     return newDm;
   }
 
