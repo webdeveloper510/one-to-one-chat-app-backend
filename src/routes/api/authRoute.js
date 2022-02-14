@@ -100,12 +100,20 @@ authRouter.post(
  * @swagger
  *
  * /api/v1/auth/users:
- *   get:
+ *   post:
  *     security: []
  *     summary: Get users alongside DMs
  *     description: Get users alongside DMs
  *     tags:
  *      - Auth
+ *     requestBody:
+ *        content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               receiverId:
+ *                 type: string
  *     parameters:
  *        - name: x-auth-token
  *          in : header
@@ -127,9 +135,10 @@ authRouter.post(
  *         description: Users retrived
  */
 
-authRouter.get(
+authRouter.post(
   "/users",
   verifyToken,
+  Validator.userRules(),
   AuthController.viewAllUsers
 );
 export default authRouter;

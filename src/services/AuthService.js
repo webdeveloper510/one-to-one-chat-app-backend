@@ -34,6 +34,7 @@ class AuthService {
    */
   static async viewUsersAlongsideDms(req) {
     const { user: { id }} = req;
+    const { receiverId } = req.body;
     const allUsers = await Queries.findAll(users, {
       where: { id: { [Op.ne]: id } },
       attributes: {
@@ -41,17 +42,19 @@ class AuthService {
       },
       include: [
            { 
-             model: dms, as: 'receivedDms', 
+             model: dms, as: 'dms', 
              required: false,
               where: {
-                  receiverId: id 
+                  receiverId: receiverId ,
+                  senderId: id 
                }
            },
            {
-              model: dms, as: 'sentDms', 
+              model: dms, as: 'dms', 
               required: false,
                where: {
-                senderId: id 
+                receiverId: id ,
+                  senderId:  receiverId
               }
             }
       ],

@@ -22,6 +22,20 @@ class DmController {
       httpStatus.CREATED
     );
   }
+
+  static async getDms(req, res) {
+
+    const newDM = await DmService.createNewDm(req);
+    Response.successMessage(
+      res,
+      "DM created successfully!",
+      newDM,
+      httpStatus.CREATED
+    );
+  }
+
+
+
 }
 
 export default DmController;
