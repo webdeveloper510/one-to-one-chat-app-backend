@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   dms.associate = ({ users })  => {
     dms.belongsTo(users, { foreignKey: 'receiverId', targetKey: 'id', as: 'sentDms' });
-    dms.belongsTo(users, { foreignKey: 'senderId', targetKey: 'id', as: 'sentDms' });
+    dms.belongsTo(users, { foreignKey: 'senderId', targetKey: 'id', as: 'receivedDms' });
   };
   return dms;
 };
