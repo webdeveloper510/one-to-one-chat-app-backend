@@ -34,7 +34,7 @@ class AuthService {
    */
   static async viewUsersAlongsideDms(req) {
     const { user: { id }} = req;
-    const { receiverId } = req.body;
+    //const { receiverId } = req.body;
     const allUsers = await Queries.findAll(users, {
       where: { id: { [Op.ne]: id } },
       attributes: {
